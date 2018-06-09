@@ -5,7 +5,7 @@ const config={
         path:path.resolve(__dirname,"dist"),
         filename:"bundle.js"
     },
-    mode:"production",
+    mode:"development",
     devServer: {
         contentBase: path.join(__dirname, "./"),
         compress: true,

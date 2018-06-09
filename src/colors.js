@@ -46,9 +46,3 @@ export const colors = [
 
 
 
-export class ColorOperation {
-        concatColors(color1,color2){
-                return color1.color+"-"+color2.color;
-        }
-}
-
