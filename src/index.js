@@ -62,3 +62,72 @@ myMaplees5.changeSeason('fall');
 myMaplees5.gatherSyrup();
 myMaplees5.changeSeason('spring');
 console.log(myMaplees5.getSyrunQty());
+
+
+const bowl = {
+    [Symbol('apple')]: { color: 'red', weight: 136.078 },
+    [Symbol('banana')]: { color: 'yellow', weight: 183.15 },
+    [Symbol('orange')]: { color: 'orange', weight: 170.097 },
+    [Symbol('banana')]: { color: 'yellow', weight: 176.845 }
+};
+console.log(bowl);
+
+
+const digits=[0,1,2,3,4,5,6,7];
+const digitIterator=digits[Symbol.iterator]();
+let obj=digitIterator.next();
+while(!obj.done){
+    console.log(obj.value);
+    obj=digitIterator.next();
+}
+
+
+let naturalNumbes=new Set([1,2,3,4]);
+naturalNumbes.add(9);
+naturalNumbes.add(9);
+for(let number of naturalNumbes){
+    console.log(number);
+}
+
+let person= new Map();
+person.set("ankit",{name:"ankit sorahtiya"});
+person.set("pankaj",{name:"pankaj sorahtiya"});
+console.log(person);
+person.forEach((value,key)=>console.log(value,key));
+
+
+let testPromise= new Promise(function (resolve,reject) {
+    window.setTimeout(function(){
+            if(Math.random()<=0.5){
+                resolve("Yuppie, things worked out");
+            }else{
+                reject("you suck!, go cry");
+            }
+    },100);
+});
+testPromise.then(function(response){
+        console.log(response);
+},function(err){
+        console.log(err);
+});
+
+Promise.all([testPromise,testPromise]).then(function(response){
+    console.log(response);
+},function (err) {
+});
+
+
+
+//trying out proxies
+let developer={name:"Ankit Sorathiya",chargerPerHour:10};
+let proxyHandler={
+            get(target,propName){
+                if(target[propName]){
+                    return target[propName];
+                }
+                return `No such property! ${propName}`
+            }
+};
+let agent=new Proxy(developer,proxyHandler);
+console.log(agent.name);
+console.log(agent.doesntExist);

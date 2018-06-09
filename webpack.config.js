@@ -1,6 +1,6 @@
 const path =require("path");
 const config={
-    entry:["./src/index.js"],
+    entry:["./src/index.js","./src/generator.js"],
     output:{
         path:path.resolve(__dirname,"dist"),
         filename:"bundle.js"
@@ -12,20 +12,20 @@ const config={
         port: 8080,
         open:true
     },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            }
-        ]
-    }
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /\.js$/,
+    //             exclude: /(node_modules|bower_components)/,
+    //             use: {
+    //                 loader: 'babel-loader',
+    //                 options: {
+    //                     presets: ['@babel/preset-env']
+    //                 }
+    //             }
+    //         }
+    //     ]
+    // }
 };
 
 module.exports=config;
